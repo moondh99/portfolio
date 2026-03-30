@@ -15,7 +15,12 @@ var projects = [
     description: '유가증권 투자 분석을 위한 AI 모델 개발 프로젝트. 데이터 수집, 전처리, 모델링까지 PM으로서 전체 프로세스를 리드하며 팀을 이끌었습니다.',
     techStack: ['Python', 'Pandas', 'Scikit-learn'],
     award: null,
-    link: null
+    link: null,
+    problem: '개인 투자자가 유가증권 시장의 방대한 데이터를 체계적으로 분석하기 어려워 비합리적 투자 결정을 내리는 문제',
+    hypothesis: 'AI 모델이 과거 시장 데이터 패턴을 학습하면 투자 의사결정에 유의미한 인사이트를 제공할 수 있을 것이다',
+    solution: '데이터 수집-전처리-모델링 파이프라인을 설계하고, PM으로서 팀 역할 분배 및 일정 관리를 통해 프로젝트를 리드',
+    outcome: '데이터 파이프라인 구축 완료 및 AI 분석 모델 프로토타입 개발',
+    metrics: []
   },
   {
     id: 'project-2',
@@ -27,7 +32,14 @@ var projects = [
     description: '공간 데이터와 교통 데이터를 결합 분석하여 청년 문화·여가 시설 접근성 격차를 파악하고 최적 위치를 제안한 프로젝트입니다. 팀장으로서 기획 및 문서화를 담당했습니다.',
     techStack: ['Python', 'Pandas', 'SQL'],
     award: '🏆 경기청년 연구랩업 대상',
-    link: null
+    link: null,
+    problem: '경기도 내 청년 문화·여가 시설이 특정 지역에 편중되어 접근성 격차가 존재하지만, 이를 데이터로 정량화한 연구가 부족',
+    hypothesis: '공간 데이터와 대중교통 데이터를 결합 분석하면 접근성 사각지대를 식별하고 최적 시설 위치를 도출할 수 있을 것이다',
+    solution: 'GIS 기반 공간 분석과 교통 접근성 지표를 결합한 분석 프레임워크를 설계하고, 팀장으로서 연구 방향 및 문서화를 리드',
+    outcome: '접근성 격차 지역 도출 및 최적 위치 제안 보고서 완성, 경기청년 연구랩업 대상 수상',
+    metrics: [
+      { label: '수상', value: '대상' }
+    ]
   },
   {
     id: 'project-3',
@@ -39,7 +51,14 @@ var projects = [
     description: '모델 컨텍스트 프로토콜(MCP)을 활용하여 정치인 공약 이행 현황을 추적하는 시스템을 기획하고 개발한 프로젝트입니다.',
     techStack: ['Python', 'MCP'],
     award: '🏆 경기청년 갭이어 우수 참여자',
-    link: null
+    link: null,
+    problem: '시민들이 정치인의 공약 이행 여부를 체계적으로 확인할 수 있는 도구가 부재하여 정치적 책임성 검증이 어려움',
+    hypothesis: 'MCP(모델 컨텍스트 프로토콜)를 활용하면 공약 데이터를 자동 수집·분석하여 이행 현황을 실시간으로 추적할 수 있을 것이다',
+    solution: 'MCP 기반 데이터 수집 파이프라인과 공약 이행률 대시보드를 기획·개발하여 시민 접근성을 확보',
+    outcome: '공약 이행 추적 시스템 프로토타입 완성, 경기청년 갭이어 우수 참여자 선정',
+    metrics: [
+      { label: '수상', value: '우수 참여자' }
+    ]
   },
   {
     id: 'project-4',
@@ -51,7 +70,12 @@ var projects = [
     description: '취업 박람회 사전예약 신청 시스템의 데이터베이스 설계 및 구축을 담당한 프로젝트입니다. 팀장으로서 기획을 리드했습니다.',
     techStack: ['MySQL', 'SQL'],
     award: null,
-    link: null
+    link: null,
+    problem: '취업 박람회 사전예약이 수작업으로 처리되어 중복 신청, 데이터 누락 등 운영 비효율이 발생',
+    hypothesis: '정규화된 DB 설계와 체계적인 예약 시스템을 구축하면 운영 효율성과 데이터 정합성을 동시에 확보할 수 있을 것이다',
+    solution: 'ERD 설계 및 MySQL 기반 예약 관리 DB를 구축하고, 팀장으로서 요구사항 정의 및 테이블 설계를 리드',
+    outcome: '정규화된 DB 스키마 설계 완료 및 예약 시스템 프로토타입 구현',
+    metrics: []
   },
   {
     id: 'project-5',
@@ -63,7 +87,12 @@ var projects = [
     description: '무역 품목의 공행성을 판별하고 무역량을 예측하는 AI 모델을 개발한 대회 프로젝트입니다.',
     techStack: ['Python', 'Scikit-learn', 'Pandas'],
     award: null,
-    link: null
+    link: null,
+    problem: '무역 품목 간 공행성(co-movement) 관계를 정량적으로 판별하기 어려워 무역량 예측의 정확도가 낮음',
+    hypothesis: '품목 간 공행성 패턴을 머신러닝으로 학습하면 무역량 예측 정확도를 유의미하게 향상시킬 수 있을 것이다',
+    solution: '공행성 판별 모델과 무역량 예측 모델을 파이프라인으로 연결하여 통합 분석 시스템 구축',
+    outcome: '공행성 판별 및 무역량 예측 모델 개발 완료',
+    metrics: []
   },
   {
     id: 'project-6',
@@ -75,7 +104,12 @@ var projects = [
     description: '국민대학교 수강신청 시스템의 기존 프로세스를 분석하고 개편 방안을 기획한 프로젝트입니다. 팀장으로서 전체 기획을 리드했습니다.',
     techStack: ['UML', 'Figma'],
     award: null,
-    link: null
+    link: null,
+    problem: '기존 수강신청 시스템의 UX가 비직관적이고 서버 과부하 시 장애가 빈번하여 학생 불만이 높음',
+    hypothesis: '현행 시스템의 프로세스를 체계적으로 분석하고 UML로 모델링하면 병목 지점을 식별하고 개선안을 도출할 수 있을 것이다',
+    solution: 'UML 기반 현행 시스템 분석 후 개선된 프로세스 설계 및 Figma 프로토타입 제작, 팀장으로서 분석 프레임워크 설계를 리드',
+    outcome: '시스템 분석 보고서 및 개편 프로토타입 완성',
+    metrics: []
   },
   {
     id: 'project-7',
@@ -87,7 +121,12 @@ var projects = [
     description: '인공지능을 활용하여 K리그 경기 승률을 예측하는 프로그램을 기획하고 프론트엔드를 개발한 프로젝트입니다.',
     techStack: ['Python', 'Scikit-learn'],
     award: null,
-    link: null
+    link: null,
+    problem: 'K리그 팬과 분석가가 경기 결과를 데이터 기반으로 예측할 수 있는 도구가 부족하여 주관적 판단에 의존',
+    hypothesis: '팀별 과거 경기 데이터와 선수 통계를 머신러닝 모델에 학습시키면 승률 예측 정확도를 높일 수 있을 것이다',
+    solution: '경기 데이터 수집·분석 파이프라인과 예측 결과를 시각화하는 프론트엔드를 기획·개발, 팀장으로서 전체 프로젝트를 리드',
+    outcome: 'K리그 승률 예측 모델 및 시각화 대시보드 프로토타입 완성',
+    metrics: []
   },
   {
     id: 'project-8',
@@ -99,7 +138,12 @@ var projects = [
     description: '실시간 데이터 아키텍처를 활용하여 서울시 따릉이 수요를 분석하는 데이터 파이프라인을 구축한 프로젝트입니다. 팀장 겸 데이터 엔지니어로 참여했습니다.',
     techStack: ['Python', 'Airflow', 'AWS', 'Docker'],
     award: null,
-    link: null
+    link: null,
+    problem: '서울시 따릉이 수요 데이터가 실시간으로 수집·분석되지 않아 수요 예측 및 재배치 의사결정이 지연됨',
+    hypothesis: '실시간 데이터 파이프라인을 구축하면 따릉이 수요 패턴을 즉시 파악하고 운영 효율을 개선할 수 있을 것이다',
+    solution: 'Airflow 기반 ETL 파이프라인과 AWS 인프라를 활용한 실시간 데이터 수집·분석 아키텍처 설계 및 구축',
+    outcome: '실시간 데이터 파이프라인 구축 완료, 따릉이 수요 패턴 분석 대시보드 구현',
+    metrics: []
   },
   {
     id: 'project-9',
@@ -111,7 +155,12 @@ var projects = [
     description: '산업 주요 5개 품목의 6개년 무역데이터와 외부 데이터를 활용하여 예측 모델을 개발한 대회 프로젝트입니다.',
     techStack: ['Python', 'Pandas', 'Scikit-learn'],
     award: null,
-    link: null
+    link: null,
+    problem: '산업 주요 품목의 무역량 변동을 정확히 예측하기 어려워 기업과 정책 입안자의 의사결정에 불확실성이 존재',
+    hypothesis: '6개년 무역데이터와 외부 경제 지표를 결합하면 품목별 무역량 예측 정확도를 향상시킬 수 있을 것이다',
+    solution: '다변량 시계열 분석과 머신러닝 앙상블 기법을 적용하여 5개 품목별 예측 모델 개발',
+    outcome: '5개 품목 무역량 예측 모델 개발 완료',
+    metrics: []
   },
   {
     id: 'project-10',
@@ -123,7 +172,12 @@ var projects = [
     description: 'MQL(Marketing Qualified Lead) 데이터를 기반으로 B2B 영업 기회 창출을 예측하는 모델을 개발한 프로젝트입니다.',
     techStack: ['Python', 'Scikit-learn'],
     award: null,
-    link: null
+    link: null,
+    problem: 'B2B 영업에서 MQL 중 실제 영업 기회로 전환되는 리드를 사전에 식별하기 어려워 영업 리소스가 비효율적으로 배분됨',
+    hypothesis: 'MQL 데이터의 행동 패턴과 속성을 분석하면 영업 기회 전환 가능성이 높은 리드를 사전에 예측할 수 있을 것이다',
+    solution: 'MQL 데이터 전처리 및 피처 엔지니어링 후 분류 모델을 학습시켜 영업 기회 전환 예측 시스템 구축',
+    outcome: 'B2B 영업 기회 예측 모델 개발 완료',
+    metrics: []
   },
   {
     id: 'project-11',
@@ -135,7 +189,12 @@ var projects = [
     description: '미래에셋증권 AI Data Festival에서 투자 교육 및 훈련 플랫폼 서비스를 기획한 프로젝트입니다.',
     techStack: ['Figma', 'Notion'],
     award: null,
-    link: null
+    link: null,
+    problem: '초보 투자자가 실전 투자 전에 안전하게 학습하고 훈련할 수 있는 체계적인 플랫폼이 부족',
+    hypothesis: '단계별 투자 교육 커리큘럼과 모의 투자 훈련 기능을 결합하면 초보 투자자의 학습 효과를 높일 수 있을 것이다',
+    solution: '사용자 리서치 기반으로 단계별 교육 콘텐츠와 모의 투자 시뮬레이션을 결합한 플랫폼 서비스를 기획하고 Figma로 프로토타입 제작',
+    outcome: '투자 교육 플랫폼 서비스 기획서 및 프로토타입 완성',
+    metrics: []
   },
   {
     id: 'project-12',
@@ -147,7 +206,12 @@ var projects = [
     description: '머신러닝 기법을 활용한 데이터 분석 및 모델링 프로젝트입니다.',
     techStack: ['Python', 'Scikit-learn'],
     award: null,
-    link: null
+    link: null,
+    problem: '데이터 분석 과정에서 전통적 통계 기법만으로는 복잡한 패턴을 포착하기 어려운 한계가 존재',
+    hypothesis: '머신러닝 알고리즘을 적용하면 데이터 내 비선형 패턴을 학습하여 분석 정확도를 향상시킬 수 있을 것이다',
+    solution: '다양한 머신러닝 알고리즘(회귀, 분류, 클러스터링)을 비교 실험하고 최적 모델을 선정하여 분석 파이프라인 구축',
+    outcome: '머신러닝 기반 데이터 분석 모델 개발 및 성능 비교 보고서 완성',
+    metrics: []
   }
 ];
 
@@ -250,11 +314,13 @@ window.updateActiveNav = updateActiveNav;
 /**
  * Intersection Observer 콜백 - Viewport 진입 시 'visible' 클래스 추가
  * @param {IntersectionObserverEntry[]} entries - Observer 엔트리 배열
+ * @param {IntersectionObserver} observer - Observer 인스턴스
  */
-function handleIntersection(entries) {
+function handleIntersection(entries, observer) {
   for (var i = 0; i < entries.length; i++) {
     if (entries[i].isIntersecting) {
       entries[i].target.classList.add('visible');
+      observer.unobserve(entries[i].target);
     }
   }
 }
@@ -365,8 +431,30 @@ function initProjectFilters() {
           description: summaryEl ? summaryEl.textContent : '',
           techStack: techStack,
           award: awardEl ? awardEl.textContent : null,
-          link: null
+          link: null,
+          problem: '',
+          hypothesis: '',
+          solution: '',
+          outcome: '',
+          metrics: []
         };
+
+        // DOM에서 PHSO 추출
+        var phsoItems = content.querySelectorAll('.phso-item');
+        var phsoFields = ['problem', 'hypothesis', 'solution', 'outcome'];
+        for (var j = 0; j < phsoItems.length && j < phsoFields.length; j++) {
+          var p = phsoItems[j].querySelector('p');
+          if (p) projectData[phsoFields[j]] = p.textContent;
+        }
+
+        // DOM에서 metrics 추출
+        var metricBadges = content.querySelectorAll('.card-metrics .metric-badge');
+        for (var k = 0; k < metricBadges.length; k++) {
+          var strongEl = metricBadges[k].querySelector('strong');
+          var value = strongEl ? strongEl.textContent : '';
+          var label = metricBadges[k].textContent.replace(value, '').trim();
+          projectData.metrics.push({ label: label, value: value });
+        }
       }
 
       openModal(projectData, card);
@@ -412,6 +500,58 @@ function initProjectFilters() {
 var _modalTriggerElement = null;
 // 포커스 트랩 키다운 핸들러 참조
 var _focusTrapHandler = null;
+
+/**
+ * PHSO 영역 렌더링
+ * @param {HTMLElement} overlay - 모달 오버레이 요소
+ * @param {Object} projectData - 프로젝트 데이터
+ */
+function renderPHSO(overlay, projectData) {
+  var fields = ['problem', 'hypothesis', 'solution', 'outcome'];
+  var selectors = ['.modal-problem', '.modal-hypothesis', '.modal-solution', '.modal-outcome'];
+
+  for (var i = 0; i < fields.length; i++) {
+    var el = overlay.querySelector(selectors[i]);
+    var section = el ? el.closest('.modal-phso-section') : null;
+    var value = projectData[fields[i]] || '';
+
+    if (el) el.textContent = value;
+    if (section) {
+      if (value) {
+        section.removeAttribute('hidden');
+      } else {
+        section.setAttribute('hidden', '');
+      }
+    }
+  }
+}
+
+/**
+ * Metric Badge 렌더링
+ * @param {HTMLElement} container - .modal-metrics 컨테이너
+ * @param {Array} metrics - { label, value } 배열
+ */
+function renderMetricBadges(container, metrics) {
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (!metrics || !metrics.length) {
+    container.setAttribute('hidden', '');
+    return;
+  }
+
+  container.removeAttribute('hidden');
+  for (var i = 0; i < metrics.length; i++) {
+    var badge = document.createElement('span');
+    badge.className = 'metric-badge';
+    badge.setAttribute('aria-label', metrics[i].value + ' ' + metrics[i].label);
+    var strong = document.createElement('strong');
+    strong.textContent = metrics[i].value;
+    badge.appendChild(strong);
+    badge.appendChild(document.createTextNode(' ' + metrics[i].label));
+    container.appendChild(badge);
+  }
+}
 
 /**
  * 모달 열기
@@ -468,6 +608,13 @@ function openModal(projectData, triggerElement) {
       linkEl.setAttribute('hidden', '');
     }
   }
+
+  // PHSO 렌더링
+  renderPHSO(overlay, projectData);
+
+  // Metric Badge 렌더링
+  var metricsContainer = overlay.querySelector('.modal-metrics');
+  renderMetricBadges(metricsContainer, projectData.metrics || []);
 
   // 모달 표시
   overlay.removeAttribute('hidden');
@@ -556,6 +703,8 @@ window.openModal = openModal;
 window.closeModal = closeModal;
 window.projects = projects;
 window.getProjectById = getProjectById;
+window.renderPHSO = renderPHSO;
+window.renderMetricBadges = renderMetricBadges;
 
 /**
  * 메뉴 토글
