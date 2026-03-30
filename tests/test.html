@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포트폴리오 단위 테스트</title>
+  <style>
+    :root {
+      --nav-height: 64px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 2rem; background: #f8fafc; color: #1e293b; }
+    h1 { margin-bottom: 1.5rem; }
+    .test-suite { margin-bottom: 2rem; }
+    .test-suite h2 { font-size: 1.25rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
+    .test-result { padding: 0.5rem 1rem; margin: 0.25rem 0; border-radius: 4px; font-size: 0.95rem; }
+    .pass { background: #dcfce7; color: #166534; }
+    .fail { background: #fee2e2; color: #991b1b; }
+    .summary { margin-top: 2rem; padding: 1rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; }
+    .summary.all-pass { background: #bbf7d0; color: #14532d; }
+    .summary.has-fail { background: #fecaca; color: #7f1d1d; }
+
+    /* 테스트용 DOM에 사용되는 클래스 */
+    .hidden { display: none; }
+    .open { /* marker class */ }
+    .active { /* marker class */ }
+
+    /* 테스트 DOM 영역 숨김 */
+    #test-dom { position: absolute; left: -9999px; top: -9999px; visibility: hidden; }
+  </style>
+</head>
+<body>
+
+  <h1>🧪 포트폴리오 단위 테스트</h1>
+  <div id="results"></div>
+
+  <!-- 테스트용 DOM 구조 (화면에 보이지 않음) -->
+  <div id="test-dom">
+    <!-- filterProjects 테스트용 카드 -->
+    <div id="filter-test-area">
+      <div class="project-card" data-year="2024" data-category="data"></div>
+      <div class="project-card" data-year="2024" data-category="service"></div>
+      <div class="project-card" data-year="2023" data-category="research"></div>
+      <div class="project-card" data-year="2023" data-category="data"></div>
+    </div>
+
+    <!-- toggleMenu 테스트용 요소 -->
+    <div id="toggle-test-area">
+      <button class="test-hamburger" aria-expanded="false"></button>
+      <ul class="test-nav-menu"></ul>
+    </div>
+
+    <!-- updateActiveNav 테스트용 요소 -->
+    <div id="nav-test-area">
+      <a href="#sec-a" class="test-nav-link">A</a>
+      <a href="#sec-b" class="test-nav-link">B</a>
+      <a href="#sec-c" class="test-nav-link">C</a>
+    </div>
+  </div>
+
+  <!-- main.js 로드 (함수들이 window에 노출됨) -->
+  <script src="../js/main.js"></script>
+
+  <script>
+    // ===== 간단한 테스트 러너 =====
+    var totalTests = 0;
+    var passedTests = 0;
+    var failedTests = 0;
+    var currentSuite = '';
+    var resultsEl = document.getElementById('results');
+    var suiteEl = null;
+
+    function suite(name) {
+      currentSuite = name;
+      suiteEl = document.createElement('div');
+      suiteEl.className = 'test-suite';
+      suiteEl.innerHTML = '<h2>' + name + '</h2>';
+      resultsEl.appendChild(suiteEl);
+    }
+
+    function assert(condition, message) {
+      totalTests++;
+      var div = document.createElement('div');
+      div.className = 'test-result';
+      if (condition) {
+        passedTests++;
+        div.classList.add('pass');
+        div.textContent = '✅ PASS: ' + message;
+      } else {
+        failedTests++;
+        div.classList.add('fail');
+        div.textContent = '❌ FAIL: ' + message;
+      }
+      suiteEl.appendChild(div);
+    }
+
+    function assertEqual(actual, expected, message) {
+      assert(actual === expected, message + ' (expected: ' + expected + ', got: ' + actual + ')');
+    }
+
+    function showSummary() {
+      var div = document.createElement('div');
+      div.className = 'summary ' + (failedTests === 0 ? 'all-pass' : 'has-fail');
+      div.textContent = '결과: ' + totalTests + '개 중 ' + passedTests + '개 통과, ' + failedTests + '개 실패';
+      resultsEl.appendChild(div);
+    }
+
+    // ===== 헬퍼: 카드 hidden 클래스 초기화 =====
+    function resetCards(cards) {
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('hidden');
+      }
+    }
+
+    // ===== filterProjects 테스트 =====
+    suite('filterProjects 함수 테스트');
+    (function () {
+      var cards = document.querySelectorAll('#filter-test-area .project-card');
+
+      // "all" 필터: 모든 카드 표시
+      resetCards(cards);
+      var result = window.filterProjects('all', cards);
+      assertEqual(result.length, 4, '"all" 필터 시 모든 카드(4개) 반환');
+      var allVisible = true;
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].classList.contains('hidden')) { allVisible = false; break; }
+      }
+      assert(allVisible, '"all" 필터 시 모든 카드에 hidden 클래스 없음');
+
+      // 연도 필터 "2024": 2024년 카드만 표시
+      resetCards(cards);
+      result = window.filterProjects('2024', cards);
+      assertEqual(result.length, 2, '"2024" 필터 시 2개 카드 반환');
+      assert(!cards[0].classList.contains('hidden'), '2024/data 카드 표시됨');
+      assert(!cards[1].classList.contains('hidden'), '2024/service 카드 표시됨');
+      assert(cards[2].classList.contains('hidden'), '2023/research 카드 숨겨짐');
+      assert(cards[3].classList.contains('hidden'), '2023/data 카드 숨겨짐');
+
+      // 카테고리 필터 "data": data 카테고리 카드만 표시
+      resetCards(cards);
+      result = window.filterProjects('data', cards);
+      assertEqual(result.length, 2, '"data" 필터 시 2개 카드 반환');
+      assert(!cards[0].classList.contains('hidden'), '2024/data 카드 표시됨');
+      assert(cards[1].classList.contains('hidden'), '2024/service 카드 숨겨짐');
+      assert(cards[2].classList.contains('hidden'), '2023/research 카드 숨겨짐');
+      assert(!cards[3].classList.contains('hidden'), '2023/data 카드 표시됨');
+
+      // 매칭 없는 필터: 모든 카드 숨김
+      resetCards(cards);
+      result = window.filterProjects('nonexistent', cards);
+      assertEqual(result.length, 0, '매칭 없는 필터 시 0개 카드 반환');
+      var allHidden = true;
+      for (var j = 0; j < cards.length; j++) {
+        if (!cards[j].classList.contains('hidden')) { allHidden = false; break; }
+      }
+      assert(allHidden, '매칭 없는 필터 시 모든 카드에 hidden 클래스 있음');
+    })();
+
+    // ===== toggleMenu 테스트 =====
+    suite('toggleMenu 함수 테스트');
+    (function () {
+      var menu = document.querySelector('#toggle-test-area .test-nav-menu');
+      var btn = document.querySelector('#toggle-test-area .test-hamburger');
+
+      // 닫힌 상태 → 열기
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+
+      var newState = window.toggleMenu(menu, btn, false);
+      assertEqual(newState, true, '닫힌 상태에서 토글 시 true 반환');
+      assert(menu.classList.contains('open'), '메뉴에 open 클래스 추가됨');
+      assertEqual(btn.getAttribute('aria-expanded'), 'true', 'aria-expanded="true" 설정됨');
+
+      // 열린 상태 → 닫기
+      newState = window.toggleMenu(menu, btn, true);
+      assertEqual(newState, false, '열린 상태에서 토글 시 false 반환');
+      assert(!menu.classList.contains('open'), '메뉴에서 open 클래스 제거됨');
+      assertEqual(btn.getAttribute('aria-expanded'), 'false', 'aria-expanded="false" 설정됨');
+    })();
+
+    // ===== updateActiveNav 테스트 =====
+    suite('updateActiveNav 함수 테스트');
+    (function () {
+      var navLinks = document.querySelectorAll('#nav-test-area .test-nav-link');
+
+      // 가짜 섹션 객체 생성 (offsetTop, id 시뮬레이션)
+      // updateActiveNav는 section.offsetTop과 section.getAttribute('id')를 사용
+      var navHeight = 64;
+
+      // scrollPos = pageYOffset + navHeight + 1 이므로
+      // section.offsetTop <= scrollPos 인 마지막 섹션이 활성화됨
+      // pageYOffset = 0 → scrollPos = 65
+      // sec-a: offsetTop=0 → 0 <= 65 ✓
+      // sec-b: offsetTop=500 → 500 <= 65 ✗
+      // sec-c: offsetTop=1000 → 1000 <= 65 ✗
+      // → sec-a 활성화
+
+      var fakeSections = [
+        { offsetTop: 0, getAttribute: function () { return 'sec-a'; } },
+        { offsetTop: 500, getAttribute: function () { return 'sec-b'; } },
+        { offsetTop: 1000, getAttribute: function () { return 'sec-c'; } }
+      ];
+
+      // 테스트 1: 첫 번째 섹션 활성화 (pageYOffset = 0)
+      for (var i = 0; i < navLinks.length; i++) navLinks[i].classList.remove('active');
+      window.updateActiveNav(fakeSections, navLinks);
+      assert(navLinks[0].classList.contains('active'), '스크롤 상단에서 첫 번째 링크(sec-a) 활성화');
+      assert(!navLinks[1].classList.contains('active'), '두 번째 링크(sec-b) 비활성화');
+      assert(!navLinks[2].classList.contains('active'), '세 번째 링크(sec-c) 비활성화');
+
+      // 테스트 2: 두 번째 섹션 활성화 시뮬레이션
+      // offsetTop을 조정하여 sec-b가 활성화되도록 설정
+      // scrollPos = pageYOffset(0) + 64 + 1 = 65
+      // sec-a: offsetTop=0 ≤ 65 ✓, sec-b: offsetTop=50 ≤ 65 ✓, sec-c: offsetTop=1000 ✗
+      // → 마지막 매칭인 sec-b 활성화
+      var fakeSections2 = [
+        { offsetTop: 0, getAttribute: function () { return 'sec-a'; } },
+        { offsetTop: 50, getAttribute: function () { return 'sec-b'; } },
+        { offsetTop: 1000, getAttribute: function () { return 'sec-c'; } }
+      ];
+
+      for (var j = 0; j < navLinks.length; j++) navLinks[j].classList.remove('active');
+      window.updateActiveNav(fakeSections2, navLinks);
+      assert(!navLinks[0].classList.contains('active'), 'sec-b 활성 시 sec-a 링크 비활성화');
+      assert(navLinks[1].classList.contains('active'), 'sec-b 링크 활성화');
+      assert(!navLinks[2].classList.contains('active'), 'sec-c 링크 비활성화');
+
+      // 테스트 3: active 클래스가 이전 링크에서 제거되는지 확인
+      // 먼저 모든 링크에 active 추가
+      for (var k = 0; k < navLinks.length; k++) navLinks[k].classList.add('active');
+      window.updateActiveNav(fakeSections, navLinks);
+      // sec-a만 활성화, 나머지는 제거되어야 함
+      assert(navLinks[0].classList.contains('active'), 'active 정리 후 sec-a 활성화');
+      assert(!navLinks[1].classList.contains('active'), 'active 정리 후 sec-b에서 active 제거됨');
+      assert(!navLinks[2].classList.contains('active'), 'active 정리 후 sec-c에서 active 제거됨');
+    })();
+
+    // ===== 결과 요약 =====
+    showSummary();
+  </script>
+</body>
+</html>
