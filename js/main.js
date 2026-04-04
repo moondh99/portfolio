@@ -6,21 +6,25 @@
  */
 var projects = [
   {
-    id: 'project-1',
-    title: '유가증권 투자 애널리스트 AI',
-    period: '2025 · 한이음 프로젝트 (팀장/PM)',
+    id: 'project-intern',
+    title: '데이터 라벨링 검수 프로세스 설계 및 품질 관리',
+    period: '2025 · 셀렉트스타 Data Assistant 인턴 (4개월)',
     year: '2025',
     category: 'data',
-    summary: '유가증권 투자 분석을 위한 AI 모델 개발 프로젝트. 데이터 수집부터 모델링까지 PM으로서 전체 프로세스를 리드',
-    description: '유가증권 투자 분석을 위한 AI 모델 개발 프로젝트. 데이터 수집, 전처리, 모델링까지 PM으로서 전체 프로세스를 리드하며 팀을 이끌었습니다.',
-    techStack: ['Python', 'Pandas', 'Scikit-learn'],
-    award: null,
+    summary: 'API 기반 기계 검수 + 휴먼 검수 이중 체계를 설계하여 라벨링 정확도 72%→94%, 검수 시간 55% 단축',
+    description: '데이터 라벨링 정확도가 72%에 머물러 AI 모델 학습 품질에 직접적 영향을 미치는 문제를 해결하기 위해, API 기반 기계 검수와 가이드라인 기반 휴먼 검수를 결합한 이중 검수 체계를 설계했습니다. 오류 유형 분류 체계를 확립하고 작업자 가이드라인을 제작하여 정확도 94% 달성 및 검수 시간 55% 단축을 이끌어냈습니다.',
+    techStack: ['Python', 'Apps Script', 'API', 'Google Sheets'],
+    award: '💼 실무 경험',
     link: null,
-    problem: '개인 투자자가 유가증권 시장의 방대한 데이터를 체계적으로 분석하기 어려워 비합리적 투자 결정을 내리는 문제',
-    hypothesis: 'AI 모델이 과거 시장 데이터 패턴을 학습하면 투자 의사결정에 유의미한 인사이트를 제공할 수 있을 것이다',
-    solution: '데이터 수집-전처리-모델링 파이프라인을 설계하고, PM으로서 팀 역할 분배 및 일정 관리를 통해 프로젝트를 리드',
-    outcome: '데이터 파이프라인 구축 완료 및 AI 분석 모델 프로토타입 개발',
-    metrics: []
+    problem: '데이터 라벨링 정확도가 72%에 머물러 AI 모델 학습 품질에 직접적 영향을 미치고, 작업자별 검수 기준이 상이하여 건당 검수 시간이 평균 15분 소요',
+    hypothesis: 'API 기반 기계 검수와 오류 유형 분류 체계를 갖춘 휴먼 검수를 결합하고, 작업자 가이드라인을 표준화하면 정확도 90% 이상 달성과 검수 시간 단축이 가능할 것이다',
+    solution: '① API 기반 기계 검수 + 휴먼 검수 이중 체계 설계 ② 오류 유형 분류 체계 확립 및 작업자 가이드라인 제작 ③ Apps Script로 검수 시트 자동화하여 데이터 납품 일정 준수 ④ 개발팀과 일정 조율 — 병행 프로젝트로 데이터 공급 지연 시 선제적으로 가이드라인·시트를 준비하여 납품 차질 방지',
+    outcome: '라벨링 정확도 72% → 94% (22%p↑), 건당 검수 시간 15분 → 6~7분으로 55% 단축, 재작업률 감소 및 작업자 사후 만족도 조사에서 높은 만족도 확인. 검수 프로세스가 사내 표준으로 정착',
+    metrics: [
+      { label: '정확도↑', value: '22%p' },
+      { label: '시간 단축', value: '55%' },
+      { label: '실무', value: '4개월' }
+    ]
   },
   {
     id: 'project-2',
@@ -28,36 +32,61 @@ var projects = [
     period: '2025 · 경기청년 연구랩업 (팀장/기획 및 문서화)',
     year: '2025',
     category: 'research',
-    summary: '공간 데이터와 교통 데이터를 결합 분석하여 청년 문화·여가 시설 접근성 격차를 파악하고 최적 위치를 제안',
-    description: '공간 데이터와 교통 데이터를 결합 분석하여 청년 문화·여가 시설 접근성 격차를 파악하고 최적 위치를 제안한 프로젝트입니다. 팀장으로서 기획 및 문서화를 담당했습니다.',
-    techStack: ['Python', 'Pandas', 'SQL'],
+    summary: '경기도 31개 시군의 복합 접근성 지수를 산출하여 최대 4.8배 격차를 발견하고, 정책 참고자료로 활용',
+    description: '경기도 31개 시군 간 청년 문화·여가 시설 접근성 격차를 복합 지표로 정량화한 연구입니다. GIS 기반 공간 분석과 교통 접근성 지표를 결합하여 수원시(8.7점) vs 연천군(1.8점) 간 최대 4.8배 격차를 발견하고, 남북부 양극화 구조를 확인했습니다.',
+    techStack: ['Python', 'Pandas', 'SQL', 'GIS'],
     award: '🏆 경기청년 연구랩업 대상',
     link: null,
-    problem: '경기도 내 청년 문화·여가 시설이 특정 지역에 편중되어 접근성 격차가 존재하지만, 이를 데이터로 정량화한 연구가 부족',
-    hypothesis: '공간 데이터와 대중교통 데이터를 결합 분석하면 접근성 사각지대를 식별하고 최적 시설 위치를 도출할 수 있을 것이다',
-    solution: 'GIS 기반 공간 분석과 교통 접근성 지표를 결합한 분석 프레임워크를 설계하고, 팀장으로서 연구 방향 및 문서화를 리드',
-    outcome: '접근성 격차 지역 도출 및 최적 위치 제안 보고서 완성, 경기청년 연구랩업 대상 수상',
+    problem: '경기도 31개 시군 간 청년 문화·여가 시설 접근성 격차가 존재하지만, 이를 복합 지표로 정량화한 연구가 부재하여 정책 근거가 부족',
+    hypothesis: '공간 데이터(시설 분포·밀도)와 대중교통 데이터(분담률·철도 인프라)를 결합한 복합 접근성 지수를 산출하면, 소외 지역을 식별하고 최적 시설 위치를 도출할 수 있을 것이다',
+    solution: 'GIS 기반 공간 분석 프레임워크 설계, 복합 접근성 지수 산출 모델 개발. 팀장으로서 연구 방향 설정 및 문서화 리드 — 팀원 간 시험·인턴 등 일정 충돌 시 주 1회 온/오프라인 회의를 주최하고 핵심 역할을 직접 수행하여 프로젝트 진행',
+    outcome: '수원시(8.7점) vs 연천군(1.8점) 간 최대 4.8배 접근성 격차 발견, 남북부 양극화 구조 확인. 청년공간 31개 시군 중 7개 지역 완전 부재, 영화관 4개 시군 전무 등 청년 특화 시설 편중 실태 규명. 연구 결과가 경기도 지역 개발 참고자료로 활용 예정 (주최측 확인), 대상 수상',
     metrics: [
-      { label: '수상', value: '대상' }
+      { label: '수상', value: '대상' },
+      { label: '시군 분석', value: '31개' },
+      { label: '격차 발견', value: '4.8배' }
     ]
   },
   {
     id: 'project-3',
-    title: 'MCP 활용 정치인 공약 이행 추적',
+    title: 'MCP 활용 정치인 공약 이행 추적 시스템',
     period: '2025 · 경기청년 갭이어 (팀원/기획 및 개발)',
     year: '2025',
     category: 'service',
-    summary: '모델 컨텍스트 프로토콜(MCP)을 활용하여 정치인 공약 이행 현황을 추적하는 시스템 기획 및 개발',
-    description: '모델 컨텍스트 프로토콜(MCP)을 활용하여 정치인 공약 이행 현황을 추적하는 시스템을 기획하고 개발한 프로젝트입니다.',
-    techStack: ['Python', 'MCP'],
+    summary: '경기도지사 306건 + 의정부시장 192건 공약을 자동 추적하는 대시보드 시스템 기획·개발',
+    description: '공약 PDF 파싱 → DB 저장, 언론사별 뉴스 크롤링 + Gemini Grounding API 팩트체크 에이전트를 결합하여 정치인 공약 이행 현황을 자동 추적하는 시스템을 기획·개발했습니다.',
+    techStack: ['Python', 'MCP', 'Gemini API', '크롤링'],
     award: '🏆 경기청년 갭이어 우수 참여자',
     link: null,
-    problem: '시민들이 정치인의 공약 이행 여부를 체계적으로 확인할 수 있는 도구가 부재하여 정치적 책임성 검증이 어려움',
-    hypothesis: 'MCP(모델 컨텍스트 프로토콜)를 활용하면 공약 데이터를 자동 수집·분석하여 이행 현황을 실시간으로 추적할 수 있을 것이다',
-    solution: 'MCP 기반 데이터 수집 파이프라인과 공약 이행률 대시보드를 기획·개발하여 시민 접근성을 확보',
-    outcome: '공약 이행 추적 시스템 프로토타입 완성, 경기청년 갭이어 우수 참여자 선정',
+    problem: '시민들이 정치인의 공약 이행 여부를 체계적으로 확인할 수 있는 도구가 부재하여, 선행 연구에서도 공약 이행 추적의 자동화·체계화 필요성이 지속적으로 제기됨',
+    hypothesis: '공약 PDF를 파싱하여 DB화하고, 보수/진보/중도 언론사별 뉴스 크롤링 + Gemini Grounding API 기반 팩트체크 에이전트를 결합하면 공약 이행 현황을 자동으로 추적할 수 있을 것이다',
+    solution: '① 도/시청 홈페이지 공약 PDF 파싱 → DB 저장 파이프라인 구축 ② 언론사별(보수/진보/중도) 정치 뉴스 크롤링 및 공약 매칭 ③ Gemini Grounding API 활용 팩트체크 에이전트 구성 ④ 대시보드 기획·개발: 도넛 차트 이행률 시각화, 분야별 카드 그리드, 상태 필터·키워드 검색 기능',
+    outcome: '경기도지사 306건, 의정부시장 192건 공약 추적 시스템 프로토타입 완성. 대시보드 5개 탭(대시보드/정치인별/국회의원/입법랭킹/법안검색) 구현, 우수 참여자 선정',
     metrics: [
-      { label: '수상', value: '우수 참여자' }
+      { label: '공약 추적', value: '498건' },
+      { label: '선정', value: '우수 참여자' },
+      { label: '대시보드', value: '5개 탭' }
+    ]
+  },
+  {
+    id: 'project-1',
+    title: 'LLM 기반 유가증권 투자 분석 플랫폼',
+    period: '2025 · 한이음 프로젝트 (팀장/PM, 6개월)',
+    year: '2025',
+    category: 'data',
+    summary: 'LLM 기반 4대 관점별 금융 분석 및 일일 예측 검증 워크플로우를 갖춘 투자 분석 플랫폼',
+    description: '개인 투자자의 종합적 분석 부재 문제를 해결하기 위해, LLM이 기업·산업·거시경제·기술적 요인 4대 관점에서 시장을 분석하고 투자 의견을 생성하는 플랫폼을 기획·개발했습니다.',
+    techStack: ['Python', 'LLM', 'Pandas'],
+    award: null,
+    link: null,
+    problem: '개인 투자자가 기업·산업·거시경제·기술적 요인을 종합적으로 분석하기 어려워, 단편적 정보에 의존한 비합리적 투자 결정이 반복되는 문제',
+    hypothesis: 'LLM이 4대 관점(기업/산업/거시경제/기술적 요인)별로 시장 데이터를 분석하고 투자 의견을 생성하면, 개인 투자자의 의사결정 품질을 높일 수 있을 것이다',
+    solution: 'PM으로서 WBS 기반 일정 관리 및 팀원 4명 역할 분배. 처음 사용하는 기술 스택에 대해 현직 멘토를 적극 활용하여 기술적 난관 해결. 4대 관점별 원인 분석 모듈과 전날 예측 vs 당일 실제 주가 비교 평가(성공/부분성공/실패) 워크플로우 설계',
+    outcome: 'LLM 기반 금융 분석 플랫폼 프로토타입 완성. 4대 관점별 원인 분석 모듈 및 일일 예측 검증 워크플로우 구현, 팀원 4명 · 6개월 프로젝트 성공적 완수',
+    metrics: [
+      { label: '팀 리드', value: '4명' },
+      { label: '수행', value: '6개월' },
+      { label: '분석', value: '4대 관점' }
     ]
   },
   {
@@ -75,7 +104,10 @@ var projects = [
     hypothesis: '정규화된 DB 설계와 체계적인 예약 시스템을 구축하면 운영 효율성과 데이터 정합성을 동시에 확보할 수 있을 것이다',
     solution: 'ERD 설계 및 MySQL 기반 예약 관리 DB를 구축하고, 팀장으로서 요구사항 정의 및 테이블 설계를 리드',
     outcome: '정규화된 DB 스키마 설계 완료 및 예약 시스템 프로토타입 구현',
-    metrics: []
+    metrics: [
+      { label: '팀원', value: '4명' },
+      { label: '테이블', value: '8개' }
+    ]
   },
   {
     id: 'project-5',
@@ -92,7 +124,10 @@ var projects = [
     hypothesis: '품목 간 공행성 패턴을 머신러닝으로 학습하면 무역량 예측 정확도를 유의미하게 향상시킬 수 있을 것이다',
     solution: '공행성 판별 모델과 무역량 예측 모델을 파이프라인으로 연결하여 통합 분석 시스템 구축',
     outcome: '공행성 판별 및 무역량 예측 모델 개발 완료',
-    metrics: []
+    metrics: [
+      { label: '분석 품목', value: '5개' },
+      { label: '팀원', value: '3명' }
+    ]
   },
   {
     id: 'project-6',
@@ -109,7 +144,10 @@ var projects = [
     hypothesis: '현행 시스템의 프로세스를 체계적으로 분석하고 UML로 모델링하면 병목 지점을 식별하고 개선안을 도출할 수 있을 것이다',
     solution: 'UML 기반 현행 시스템 분석 후 개선된 프로세스 설계 및 Figma 프로토타입 제작, 팀장으로서 분석 프레임워크 설계를 리드',
     outcome: '시스템 분석 보고서 및 개편 프로토타입 완성',
-    metrics: []
+    metrics: [
+      { label: '팀원', value: '5명' },
+      { label: 'UML 다이어그램', value: '6종' }
+    ]
   },
   {
     id: 'project-7',
@@ -126,7 +164,10 @@ var projects = [
     hypothesis: '팀별 과거 경기 데이터와 선수 통계를 머신러닝 모델에 학습시키면 승률 예측 정확도를 높일 수 있을 것이다',
     solution: '경기 데이터 수집·분석 파이프라인과 예측 결과를 시각화하는 프론트엔드를 기획·개발, 팀장으로서 전체 프로젝트를 리드',
     outcome: 'K리그 승률 예측 모델 및 시각화 대시보드 프로토타입 완성',
-    metrics: []
+    metrics: [
+      { label: '팀원', value: '4명' },
+      { label: '기간', value: '8개월' }
+    ]
   },
   {
     id: 'project-8',
@@ -143,7 +184,11 @@ var projects = [
     hypothesis: '실시간 데이터 파이프라인을 구축하면 따릉이 수요 패턴을 즉시 파악하고 운영 효율을 개선할 수 있을 것이다',
     solution: 'Airflow 기반 ETL 파이프라인과 AWS 인프라를 활용한 실시간 데이터 수집·분석 아키텍처 설계 및 구축',
     outcome: '실시간 데이터 파이프라인 구축 완료, 따릉이 수요 패턴 분석 대시보드 구현',
-    metrics: []
+    metrics: [
+      { label: '팀원', value: '4명' },
+      { label: '기간', value: '8개월' },
+      { label: '데이터', value: '실시간' }
+    ]
   },
   {
     id: 'project-9',
@@ -160,7 +205,10 @@ var projects = [
     hypothesis: '6개년 무역데이터와 외부 경제 지표를 결합하면 품목별 무역량 예측 정확도를 향상시킬 수 있을 것이다',
     solution: '다변량 시계열 분석과 머신러닝 앙상블 기법을 적용하여 5개 품목별 예측 모델 개발',
     outcome: '5개 품목 무역량 예측 모델 개발 완료',
-    metrics: []
+    metrics: [
+      { label: '분석 품목', value: '5개' },
+      { label: '데이터', value: '6개년' }
+    ]
   },
   {
     id: 'project-10',
@@ -177,7 +225,10 @@ var projects = [
     hypothesis: 'MQL 데이터의 행동 패턴과 속성을 분석하면 영업 기회 전환 가능성이 높은 리드를 사전에 예측할 수 있을 것이다',
     solution: 'MQL 데이터 전처리 및 피처 엔지니어링 후 분류 모델을 학습시켜 영업 기회 전환 예측 시스템 구축',
     outcome: 'B2B 영업 기회 예측 모델 개발 완료',
-    metrics: []
+    metrics: [
+      { label: '프로그램', value: 'LG Aimers 4기' },
+      { label: '분석 대상', value: 'MQL 데이터' }
+    ]
   },
   {
     id: 'project-11',
@@ -194,7 +245,10 @@ var projects = [
     hypothesis: '단계별 투자 교육 커리큘럼과 모의 투자 훈련 기능을 결합하면 초보 투자자의 학습 효과를 높일 수 있을 것이다',
     solution: '사용자 리서치 기반으로 단계별 교육 콘텐츠와 모의 투자 시뮬레이션을 결합한 플랫폼 서비스를 기획하고 Figma로 프로토타입 제작',
     outcome: '투자 교육 플랫폼 서비스 기획서 및 프로토타입 완성',
-    metrics: []
+    metrics: [
+      { label: '대회', value: 'AI Data Festival' },
+      { label: '역할', value: '서비스 기획' }
+    ]
   },
   {
     id: 'project-12',
@@ -211,7 +265,10 @@ var projects = [
     hypothesis: '머신러닝 알고리즘을 적용하면 데이터 내 비선형 패턴을 학습하여 분석 정확도를 향상시킬 수 있을 것이다',
     solution: '다양한 머신러닝 알고리즘(회귀, 분류, 클러스터링)을 비교 실험하고 최적 모델을 선정하여 분석 파이프라인 구축',
     outcome: '머신러닝 기반 데이터 분석 모델 개발 및 성능 비교 보고서 완성',
-    metrics: []
+    metrics: [
+      { label: '알고리즘', value: '3종 비교' },
+      { label: '분석 기법', value: '회귀·분류·클러스터링' }
+    ]
   }
 ];
 
@@ -387,7 +444,7 @@ window.filterProjects = filterProjects;
 function initProjectFilters() {
   var filterBtns = document.querySelectorAll('.filter-btn');
   var cards = document.querySelectorAll('.project-card');
-  if (!filterBtns.length || !cards.length) return;
+  if (!cards.length) return;
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -707,6 +764,34 @@ window.renderPHSO = renderPHSO;
 window.renderMetricBadges = renderMetricBadges;
 
 /**
+ * Highlight 섹션 초기화
+ * - data-award="true" 속성을 가진 프로젝트 카드를 찾아 Highlight 섹션에 렌더링
+ */
+function initHighlightSection() {
+  var container = document.querySelector('.highlight-grid');
+  if (!container) return;
+
+  var awardCards = document.querySelectorAll('.project-card[data-award="true"]');
+  for (var i = 0; i < awardCards.length; i++) {
+    var card = awardCards[i];
+    var projectId = card.getAttribute('data-project-id');
+    var project = getProjectById(projectId);
+    if (!project) continue;
+
+    var item = document.createElement('div');
+    item.className = 'highlight-item';
+    item.innerHTML =
+      '<span class="highlight-award">' + (project.award || '') + '</span>' +
+      '<h3 class="highlight-title">' + project.title + '</h3>' +
+      '<p class="highlight-summary">' + project.outcome + '</p>';
+    container.appendChild(item);
+  }
+}
+
+// 테스트를 위해 initHighlightSection을 window에 노출
+window.initHighlightSection = initHighlightSection;
+
+/**
  * 메뉴 토글
  * @param {HTMLElement} menuElement - 메뉴 DOM 요소
  * @param {HTMLElement} hamburgerBtn - 햄버거 버튼 요소
@@ -791,4 +876,5 @@ document.addEventListener('DOMContentLoaded', function () {
   initProjectFilters();
   initHamburgerMenu();
   initHeroAnimation();
+  initHighlightSection();
 });
